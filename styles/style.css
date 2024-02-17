@@ -1,0 +1,9 @@
+.sidebar > .sidebar-controls {
+    flex-direction: column;
+}
+
+.ICPP_discoveryCounter {
+    width: 100%;
+    height: 20px;
+    color: blue;
+}

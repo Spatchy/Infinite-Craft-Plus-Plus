@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "Infinite Craft++",
+    "description": "A collection of quality of life tools for Infinite Craft",
+    "version": "1.0",
+    "action": {
+        "default_icon": "icon.png"
+    },
+    "content_scripts": [{
+        "js": ["scripts/content.js"],
+        "css" : ["styles/style.css"],
+        "matches": ["https://neal.fun/infinite-craft/"]
+    }],
+    "background": {
+        "service_worker": "scripts/background.js",
+        "type": "module"
+    },
+    "permissions": [
+        "webRequest",
+        "tabs",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "https://neal.fun/*"
+    ]
+}
