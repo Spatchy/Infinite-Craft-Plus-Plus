@@ -33,3 +33,15 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
         console.log(mostRecentDiscoveryString)
     }
 })
+
+// MIDDLE CLICK TO DUPLICATE
+document.addEventListener('mousedown', function(event) {
+    if (event.button === 1) { 
+        var doubleClickEvent = new MouseEvent('dblclick', {
+            bubbles: true,
+            cancelable: true,
+            view: window
+        })
+        event.target.dispatchEvent(doubleClickEvent)
+    }
+})
