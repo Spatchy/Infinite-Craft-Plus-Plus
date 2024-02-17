@@ -11,16 +11,11 @@
         "css" : ["styles/style.css"],
         "matches": ["https://neal.fun/infinite-craft/"]
     }],
-    "background": {
-        "service_worker": "scripts/background.js",
-        "type": "module"
-    },
-    "permissions": [
-        "webRequest",
-        "tabs",
-        "activeTab"
-    ],
-    "host_permissions": [
-        "https://neal.fun/*"
-    ]
+    "web_accessible_resources": [{
+        "matches": ["https://neal.fun/*"],
+        "resources": [
+            "scripts/speedrunTimer.js",
+            "images/stopwatch-solid.svg"
+        ]
+    }]
 }

@@ -24,16 +24,6 @@ discoverCounterElem.appendChild(discoverCounterItemCountElem)
 sidebarControls.insertBefore(discoverCounterElem, sidebarControls.firstChild)
 
 
-// LISTEN FOR CRAFT
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
-    if (message.action === "responseReceived") {
-        discoverCounterItemCountElem.innerText = getItemCount()
-        const mostRecentDiscoveryNode = sidebarItems.lastChild.previousSibling.previousSibling.childNodes[1]
-        const mostRecentDiscoveryString = mostRecentDiscoveryNode.wholeText.replace(/\s/g,'').toLowerCase()
-        console.log(mostRecentDiscoveryString)
-    }
-})
-
 // MIDDLE CLICK TO DUPLICATE
 document.addEventListener('mousedown', function(event) {
     if (event.button === 1) { 
@@ -45,3 +35,21 @@ document.addEventListener('mousedown', function(event) {
         event.target.dispatchEvent(doubleClickEvent)
     }
 })
+
+
+const src = chrome.runtime.getURL("scripts/speedrunTimer.js")
+import(src).then((speedrunTimer) => {
+
+    // LISTEN FOR CRAFT
+
+    var observer = new MutationObserver(() => {
+        discoverCounterItemCountElem.innerText = getItemCount()
+        const mostRecentDiscoveryNode = sidebarItems.lastElementChild.childNodes[1]
+        const mostRecentDiscoveryString = mostRecentDiscoveryNode.wholeText.replace(/\s/g,'').toLowerCase()
+        speedrunTimer.compareToTargetString(mostRecentDiscoveryString)
+        console.log(mostRecentDiscoveryString)
+    })
+    observer.observe(sidebarItems, {childList: true})
+    speedrunTimer.injectMenu()
+})
+
