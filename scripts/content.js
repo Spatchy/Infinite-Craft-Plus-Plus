@@ -23,10 +23,13 @@ discoverCounterElem.appendChild(discoverCounterItemCountElem)
 
 sidebarControls.insertBefore(discoverCounterElem, sidebarControls.firstChild)
 
+
+// LISTEN FOR CRAFT
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     if (message.action === "responseReceived") {
-        setTimeout(() => {
-            discoverCounterItemCountElem.innerText = getItemCount()
-        }, 100)
+        discoverCounterItemCountElem.innerText = getItemCount()
+        const mostRecentDiscoveryNode = sidebarItems.lastChild.previousSibling.previousSibling.childNodes[1]
+        const mostRecentDiscoveryString = mostRecentDiscoveryNode.wholeText.replace(/\s/g,'').toLowerCase()
+        console.log(mostRecentDiscoveryString)
     }
 })
