@@ -7,6 +7,8 @@
 }
 
 .ICPP_discoveryCounter {
+    display: flex;
+    flex-direction: row;
     width: 100%;
     height: 20px;
     color: blue;
@@ -29,5 +31,45 @@
 }
 
 .ICPP_hidden {
-    display: none;
+    visibility: hidden;
+}
+
+.ICPP_timerMenuContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 999rem;
+    background-color: blue;
+    color: white;
+}
+
+.ICPP_timerMenuContainer > input {
+    height: 30px;
+    border-radius: 999rem;
+    border-width: 0;
+    padding: 8px;
+}
+
+.ICPP_timerMenuContainer > input:focus{
+    outline-width: 1px;
+    outline-color: lightgrey;
+}
+
+.ICPP_timerMenuContainer > span {
+    font-size: 28pt;
+}
+
+.ICPP_timerMenuContainer > div {
+    display: flex;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.ICPP_timerMenuContainer > div > img {
+    filter: invert(100%);
+    padding: 10px;
+    width: 40px;
 }
