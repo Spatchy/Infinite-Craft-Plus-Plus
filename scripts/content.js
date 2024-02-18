@@ -37,19 +37,22 @@ document.addEventListener('mousedown', function(event) {
 })
 
 
-const src = chrome.runtime.getURL("scripts/speedrunTimer.js")
-import(src).then((speedrunTimer) => {
+const speedrunTimerSrc = chrome.runtime.getURL("scripts/speedrunTimer.js")
+const particleToggleSrc = chrome.runtime.getURL("scripts/particleToggle.js")
+import(speedrunTimerSrc).then((speedrunTimer) => {
+    import(particleToggleSrc).then((particleToggle) => {
+        // LISTEN FOR CRAFT
+        var observer = new MutationObserver(() => {
+            discoverCounterItemCountElem.innerText = getItemCount()
+            const mostRecentDiscoveryNode = sidebarItems.lastElementChild.childNodes[1]
+            const mostRecentDiscoveryString = mostRecentDiscoveryNode.wholeText.replace(/\s/g,'').toLowerCase()
+            speedrunTimer.compareToTargetString(mostRecentDiscoveryString)
+            console.log(mostRecentDiscoveryString)
+        })
+        observer.observe(sidebarItems, {childList: true})
 
-    // LISTEN FOR CRAFT
-
-    var observer = new MutationObserver(() => {
-        discoverCounterItemCountElem.innerText = getItemCount()
-        const mostRecentDiscoveryNode = sidebarItems.lastElementChild.childNodes[1]
-        const mostRecentDiscoveryString = mostRecentDiscoveryNode.wholeText.replace(/\s/g,'').toLowerCase()
-        speedrunTimer.compareToTargetString(mostRecentDiscoveryString)
-        console.log(mostRecentDiscoveryString)
+        particleToggle.injectParticleToggle()
+        speedrunTimer.injectMenu()
     })
-    observer.observe(sidebarItems, {childList: true})
-    speedrunTimer.injectMenu()
 })
 

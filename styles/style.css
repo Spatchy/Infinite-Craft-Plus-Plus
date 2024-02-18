@@ -73,3 +73,10 @@
     padding: 10px;
     width: 40px;
 }
+
+.ICPP_particleToggle {
+    display: flex;
+    width: 20px;
+    cursor: pointer;
+    filter: invert(9%) sepia(97%) saturate(7489%) hue-rotate(248deg) brightness(93%) contrast(145%);
+}
