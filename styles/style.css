@@ -60,6 +60,7 @@
     border-radius: 999rem;
     border-width: 0;
     padding: 8px;
+    font-size: 12pt;
 }
 
 .ICPP_timerMenuContainer > input:focus{
