@@ -75,13 +75,11 @@ const injectMenu = () => {
 
     targetInput.addEventListener("keyup", () => {
         setTargetString(targetInput.value)
-        console.log(targetString)
     })
 
 }
 
 const compareToTargetString = (str) => {
-    console.log("comparing", str, "to", targetString)
     if (str === targetString) {
         stop()
     }
