@@ -4,7 +4,15 @@
     "description": "A collection of quality of life tools for Infinite Craft",
     "version": "1.0",
     "action": {
-        "default_icon": "icon.png"
+        "default_icon": "icon/icon16.png"
+    },
+    "icons": {
+        "16": "icon/icon16.png",
+        "32": "icon/icon32.png",
+        "48": "icon/icon48.png",
+        "64": "icon/icon64.png",
+        "128": "icon/icon128.png",
+        "256": "icon/icon256.png"
     },
     "content_scripts": [{
         "js": ["scripts/content.js"],
