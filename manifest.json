@@ -31,5 +31,11 @@
             "images/stop-solid.svg",
             "images/wand-magic-sparkles-solid.svg"
         ]
-    }]
+    }],
+    "browser_specific_settings": {
+        "gecko": {
+          "id": "icpp@spatchy.net"
+        }
+    }
+      
 }
