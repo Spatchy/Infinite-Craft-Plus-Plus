@@ -9,9 +9,13 @@
 .ICPP_discoveryCounter {
     display: flex;
     flex-direction: row;
+    align-items: center;
     width: 100%;
     height: 20px;
-    color: blue;
+    padding-left: 12px;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
 }
 
 .ICPP_speedrunTimerMenuButton {
