@@ -15,9 +15,11 @@
         "matches": ["https://neal.fun/*"],
         "resources": [
             "scripts/speedrunTimer.js",
+            "scripts/particleToggle.js",
             "images/stopwatch-solid.svg",
             "images/play-solid.svg",
-            "images/stop-solid.svg"
+            "images/stop-solid.svg",
+            "images/wand-magic-sparkles-solid.svg"
         ]
     }]
 }
