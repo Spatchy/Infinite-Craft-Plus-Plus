@@ -35,6 +35,7 @@
 }
 
 .ICPP_speedrunTimerMenuButton > img {
+    max-width: 100%;
     filter: invert(100%);
     padding: 10px;
 }
