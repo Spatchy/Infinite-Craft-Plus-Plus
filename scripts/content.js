@@ -13,7 +13,7 @@ const main = async () => {
     
 
     // LISTEN FOR CRAFT
-    var observer = new MutationObserver(() => {
+    let observer = new MutationObserver(() => {
         const mostRecentDiscoveryNode = pageElems.sidebarItems.lastElementChild.childNodes[1]
         const mostRecentDiscoveryString = mostRecentDiscoveryNode.wholeText.replace(/\s/g,'').toLowerCase()
         speedrunTimer.compareToTargetString(mostRecentDiscoveryString)
