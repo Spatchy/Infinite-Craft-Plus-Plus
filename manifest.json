@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Infinite Craft++",
     "description": "A collection of quality of life tools for Infinite Craft",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "action": {
         "default_icon": "icon/icon16.png"
     },
