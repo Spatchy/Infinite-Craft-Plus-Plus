@@ -1,0 +1,26 @@
+{
+  "name": "infinite-craft-plus-plus",
+  "version": "1.0.2",
+  "description": "A collection of quality-of-life and accessability enhacements for Infinite Craft",
+  "main": "content.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spatchy/Infinite-Craft-Plus-Plus.git"
+  },
+  "author": "Spatchy",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Spatchy/Infinite-Craft-Plus-Plus/issues"
+  },
+  "homepage": "https://github.com/Spatchy/Infinite-Craft-Plus-Plus#readme",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1"
+  }
+}
