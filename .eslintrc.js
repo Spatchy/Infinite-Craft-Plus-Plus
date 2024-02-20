@@ -21,6 +21,9 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module"
   },
+  globals: {
+    chrome: true
+  },
   rules: {
     quotes: ["error", "double"]
   }
