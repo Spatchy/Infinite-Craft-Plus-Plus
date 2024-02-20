@@ -1,20 +1,16 @@
-const sidebarItems = document.querySelector(".sidebar > .items")
-const sidebarControls = document.querySelector(".sidebar > .sidebar-controls")
-
 const discoverCounterItemCountElem = document.createElement("span")
 
-const getItemCount = () => {
-    return sidebarItems.children.length
+const getItemCount = (pageElems) => {
+    return pageElems.sidebarItems.children.length
 }
 
-const refresh = () => {
-    discoverCounterItemCountElem.innerText = getItemCount()
+const refresh = (pageElems) => {
+    discoverCounterItemCountElem.innerText = getItemCount(pageElems)
 }
 
-const inject = () => {
+const inject = (pageElems) => {
     // DELETE INSTRUCTION LABEL (interferes with item count)
-    const instructionlabel = document.querySelector(".sidebar > .items > .instruction")
-    instructionlabel ? instructionlabel.remove() : null
+    pageElems.instructionLabel ? pageElems.instructionLabel.remove() : null
 
     // CREATE DISCOVERY COUNTER DIV
     const discoverCounterElem = document.createElement("div")
@@ -22,11 +18,11 @@ const inject = () => {
     discoverCounterElem.innerText = "Items Discovered: "
 
     discoverCounterItemCountElem.classList.add("ICPP_itemCount")
-    discoverCounterItemCountElem.innerText = getItemCount()
+    discoverCounterItemCountElem.innerText = getItemCount(pageElems)
 
     discoverCounterElem.appendChild(discoverCounterItemCountElem)
 
-    sidebarControls.insertBefore(discoverCounterElem, sidebarControls.firstChild)
+    pageElems.sidebarControls.insertBefore(discoverCounterElem, pageElems.sidebarControls.firstChild)
 }
 
 export {inject, refresh}

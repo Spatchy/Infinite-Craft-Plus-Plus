@@ -22,6 +22,7 @@
     "web_accessible_resources": [{
         "matches": ["https://neal.fun/*"],
         "resources": [
+            "scripts/mainPageElementSelectors.js",
             "scripts/speedrunTimer.js",
             "scripts/particleToggle.js",
             "scripts/discoveryCounter.js",

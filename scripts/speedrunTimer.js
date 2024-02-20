@@ -1,5 +1,3 @@
-const sideControls = document.querySelector(".side-controls")
-
 let timer = null
 let targetString = null
 const timeElement = document.createElement("span")
@@ -31,7 +29,7 @@ const setTargetString = (str) => {
     targetString = str.toLowerCase()
 }
 
-const injectMenu = () => {
+const injectMenu = (pageElems) => {
     // BUTTON
     const button = document.createElement("div")
     button.classList.add("ICPP_speedrunTimerMenuButton")
@@ -57,8 +55,8 @@ const injectMenu = () => {
     menuContainer.appendChild(targetInput)
 
     // INSERT CONTENT
-    sideControls.insertBefore(button, sideControls.firstChild)
-    sideControls.insertBefore(menuContainer, sideControls.firstChild)
+    pageElems.sideControls.insertBefore(button, pageElems.sideControls.firstChild)
+    pageElems.sideControls.insertBefore(menuContainer, pageElems.sideControls.firstChild)
     
     // ADD EVENT LISTENERS
     button.addEventListener("click", () => {
