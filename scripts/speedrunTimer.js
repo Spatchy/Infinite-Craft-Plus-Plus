@@ -75,6 +75,22 @@ const injectMenu = (pageElems) => {
         setTargetString(targetInput.value)
     })
 
+    // Prevent focus being pulled away by search box
+    let targetInputHasFocus = false
+    window.addEventListener("keydown", (event) => {
+        if (targetInputHasFocus) {
+            event.stopImmediatePropagation()
+        }
+    }, true)
+
+    targetInput.addEventListener("focus", () => {
+        targetInputHasFocus = true
+    })
+
+    targetInput.addEventListener("blur", () => {
+        targetInputHasFocus = false
+    })
+
 }
 
 const compareToTargetString = (str) => {
