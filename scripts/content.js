@@ -9,7 +9,7 @@ const main = async () => {
     const discoveryCounter = await import(discoveryCounterSrc)
     const middleClickDuplicate = await import(middleClickDuplicateSrc)
 
-    const sidebarItems = document.querySelector(".sidebar > .items")
+    const sidebarItems = document.querySelector(".sidebar .items")
 
     // LISTEN FOR CRAFT
     var observer = new MutationObserver(() => {
