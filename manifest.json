@@ -27,6 +27,7 @@
             "scripts/particleToggle.js",
             "scripts/discoveryCounter.js",
             "scripts/middleClickDuplicate.js",
+            "scripts/resizeSidebar.js",
             "images/stopwatch-solid.svg",
             "images/play-solid.svg",
             "images/stop-solid.svg",

@@ -3,6 +3,7 @@ const particleToggleSrc = chrome.runtime.getURL("scripts/particleToggle.js")
 const discoveryCounterSrc = chrome.runtime.getURL("scripts/discoveryCounter.js")
 const middleClickDuplicateSrc = chrome.runtime.getURL("scripts/middleClickDuplicate.js")
 const pageElemsSrc = chrome.runtime.getURL("scripts/mainPageElementSelectors.js")
+const resizeSidebarSrc = chrome.runtime.getURL("scripts/resizeSidebar.js")
 
 const main = async () => {
   const speedrunTimer = await import(speedrunTimerSrc)
@@ -10,6 +11,7 @@ const main = async () => {
   const discoveryCounter = await import(discoveryCounterSrc)
   const middleClickDuplicate = await import(middleClickDuplicateSrc)
   const pageElems = (await import(pageElemsSrc)).pageItems
+  const resizeSidebar = await import(resizeSidebarSrc)
 
   // LISTEN FOR CRAFT
   const observer = new MutationObserver(() => {
@@ -25,6 +27,7 @@ const main = async () => {
   discoveryCounter.inject(pageElems)
   particleToggle.injectParticleToggle(pageElems)
   speedrunTimer.injectMenu(pageElems)
+  resizeSidebar.inject(pageElems)
 }
 
 main()
