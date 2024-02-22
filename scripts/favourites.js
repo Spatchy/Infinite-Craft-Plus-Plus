@@ -38,7 +38,7 @@ const inject = (pageElems) => {
   viewFavouritesBtn.insertBefore(starIcon, viewFavouritesBtn.firstChild)
 
   viewFavouritesBtn.addEventListener("click", (event) => {
-    if(viewFavouritesBtn.classList.contains("ICPP_sortingItemSelected")) {
+    if (viewFavouritesBtn.classList.contains("ICPP_sortingItemSelected")) {
       viewFavouritesBtn.classList.remove("ICPP_sortingItemSelected")
       pageElems.sidebarItems.classList.remove("ICPP_showOnlyFavourites")
     } else {
@@ -50,7 +50,7 @@ const inject = (pageElems) => {
   pageElems.discoveriesBtn.addEventListener("click", (event) => {
     applyStarToAll(pageElems)
   })
-  
+
   pageElems.sidebarSorting.insertBefore(viewFavouritesBtn, pageElems.sidebarSorting.firstChild)
 
   applyStarToAll(pageElems)
