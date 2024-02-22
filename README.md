@@ -13,6 +13,9 @@ Available on [Firefox Addons](https://addons.mozilla.org/en-GB/firefox/addon/inf
 
 ### Features
 
+- ![NEW!](https://img.shields.io/badge/New-FF0000) Resizeable Sidebar:
+Drag the edge of the sidebar to make it wider or narrower
+
 - Discovery Counter:
 Counts how many items you have discovered in your current session.
 
