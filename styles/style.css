@@ -1,10 +1,28 @@
 :root {
     --ICPP_accent_color: #5e4ce0;
     --ICPP_accent_filter: invert(50%) sepia(79%) saturate(7108%) hue-rotate(239deg) brightness(92%) contrast(90%);
+    --ICPP_favourite_filter: invert(81%) sepia(100%) saturate(3527%) hue-rotate(329deg) brightness(97%) contrast(90%);
+    --ICPP_background_selected: #b6b0df;
 }
 
-.sidebar > .sidebar-controls {
+.sidebar .sidebar-controls {
     flex-direction: column;
+}
+
+.sidebar .sidebar-controls .sidebar-sorting {
+    display: flex;
+    flex-direction: row;
+}
+.sidebar .sidebar-controls .sidebar-sorting .sidebar-sorting-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.sidebar .sidebar-controls .sidebar-sorting .sidebar-sorting-item > img {
+    margin-bottom: 4px;
+    margin-right: 2px;
 }
 
 .sidebar::before {
@@ -100,4 +118,27 @@
     width: 20px;
     cursor: pointer;
     filter: var(--ICPP_accent_filter)
+}
+
+.ICPP_favouriteStar {
+    width: 15px;
+    height: 15px;
+    padding-top: 2px;
+    filter: var(--ICPP_accent_filter);
+}
+
+.ICPP_isFavourite > .ICPP_favouriteStar {
+    filter: var(--ICPP_favourite_filter);
+}
+
+.ICPP_viewFavouritesBtn {
+    background-color: white;
+}
+
+.ICPP_sortingItemSelected {
+    background-color: var(--ICPP_background_selected);
+}
+
+.ICPP_showOnlyFavourites .item:not(.ICPP_isFavourite) {
+    display: none;
 }
