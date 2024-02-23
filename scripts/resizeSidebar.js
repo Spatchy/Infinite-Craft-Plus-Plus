@@ -17,9 +17,7 @@ const dispatchRightClick = (target) => {
 }
 
 const reimplementSidebarElementAbsorb = (pageElems) => {
-
   window.addEventListener("mouseup", (event) => {
-
     let elemTarget = null
     if (event.target.matches("div.item.instance")) {
       elemTarget = event.target
@@ -78,7 +76,6 @@ const inject = (pageElems) => {
 
   document.addEventListener("mouseup", (event) => {
     isResizing = false
-    console.log(isResizing)
   })
 }
 

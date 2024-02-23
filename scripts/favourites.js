@@ -55,7 +55,6 @@ const applyStarToAll = (pageElems) => {
 }
 
 const clearAllStars = () => {
-  console.log("clearing all stars")
   Array.from(document.querySelectorAll(".ICPP_isFavourite")).forEach((element) => {
     element.classList.remove("ICPP_isFavourite")
   })
