@@ -22,7 +22,9 @@ const main = async () => {
     speedrunTimer.compareToTargetString(mostRecentDiscoveryString)
 
     discoveryCounter.refresh(pageElems)
-    favourites.insertStarIcon(mostRecentDiscoveryNode)
+    if (pageElems.sidebarItems.children.length > 4) { // prevent weird issues on game reset
+      favourites.insertStarIcon(mostRecentDiscoveryNode)
+    }
   })
   observer.observe(pageElems.sidebarItems, { childList: true })
 

@@ -36,6 +36,9 @@
             "images/star-solid.svg"
         ]
     }],
+    "permissions": [
+        "storage"
+    ],
     "browser_specific_settings": {
         "gecko": {
           "id": "icpp@spatchy.net"

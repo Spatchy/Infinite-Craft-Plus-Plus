@@ -8,7 +8,8 @@ const pageItems = {
   logo: document.querySelector("img.logo"),
   instances: document.querySelector(".instances"),
   sidebarSorting: document.querySelector(".sidebar .sidebar-controls .sidebar-sorting"),
-  discoveriesBtn: document.querySelector(".sidebar .sidebar-controls .sidebar-discoveries")
+  discoveriesBtn: document.querySelector(".sidebar .sidebar-controls .sidebar-discoveries"),
+  resetBtn: document.querySelector(".reset")
 }
 
 export { pageItems }
