@@ -21,29 +21,48 @@ const saveFavourites = () => {
 const toggleFavourite = (element) => {
   if (element.classList.contains("ICPP_isFavourite")) {
     element.classList.remove("ICPP_isFavourite")
-    favourites = favourites.filter(e => e !== element.innerText)
+    favourites = favourites.filter(e => e !== element.innerText.trim())
     saveFavourites()
   } else {
     element.classList.add("ICPP_isFavourite")
-    favourites.push(element.innerText)
+    favourites.push(element.innerText.trim())
     saveFavourites()
   }
+}
+
+const reimplementDiscoveriesBtn = (pageElems) => {
+  const replacementDiscoveriesBtn = pageElems.discoveriesBtn.cloneNode(true)
+
+  pageElems.discoveriesBtn.replaceWith(replacementDiscoveriesBtn)
+
+  replacementDiscoveriesBtn.addEventListener("click", (event) => {
+    event.stopImmediatePropagation()
+    event.preventDefault()
+    
+    if (replacementDiscoveriesBtn.classList.contains("sidebar-discoveries-active")) {
+      replacementDiscoveriesBtn.classList.remove("sidebar-discoveries-active")
+      pageElems.sidebarItems.classList.remove("ICPP_showOnlyDiscoveries")
+    } else {
+      replacementDiscoveriesBtn.classList.add("sidebar-discoveries-active")
+      pageElems.sidebarItems.classList.add("ICPP_showOnlyDiscoveries")
+    }
+  })
 }
 
 const insertStarIcon = (element) => {
   if (!element.querySelector("img")) {
     const insertedStarIcon = starIcon.cloneNode()
     element.appendChild(insertedStarIcon)
-  
-    if (favourites.includes(element.innerText)) {
+
+    if (favourites.includes(element.innerText.trim())) {
       element.classList.add("ICPP_isFavourite")
     }
-  
+
     // Block default mouse listeners causing unwanted behaviour
     insertedStarIcon.addEventListener("mousedown", (event) => {
       event.stopImmediatePropagation()
     })
-  
+
     insertedStarIcon.addEventListener("click", () => {
       toggleFavourite(insertedStarIcon.parentNode)
     })
@@ -53,18 +72,21 @@ const insertStarIcon = (element) => {
 const applyStarToAll = (pageElems) => {
   const intersectionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            insertStarIcon(entry.target);
-            observer.unobserve(entry.target);
-        }
+      if (entry.isIntersecting) {
+        insertStarIcon(entry.target)
+        observer.unobserve(entry.target)
+      }
     })
   }, {
-    root: null,
-    threshold: 0.1
+    root: null
   })
 
   Array.from(pageElems.sidebarItems.children).forEach(async (element) => {
     intersectionObserver.observe(element)
+ 
+    if (favourites.includes(element.innerText)) {
+      element.classList.add("ICPP_isFavourite")
+    }
   })
 }
 
@@ -93,10 +115,6 @@ const inject = async (pageElems) => {
     }
   })
 
-  pageElems.discoveriesBtn.addEventListener("click", (event) => {
-    applyStarToAll(pageElems)
-  })
-
   pageElems.resetBtn.addEventListener("mousedown", (event) => {
     event.stopImmediatePropagation()
     if (confirm("Your favourites must be cleared in order to reset the game. Clear your favourites?")) {
@@ -115,6 +133,7 @@ const inject = async (pageElems) => {
 
   pageElems.sidebarSorting.insertBefore(viewFavouritesBtn, pageElems.sidebarSorting.firstChild)
 
+  reimplementDiscoveriesBtn(pageElems)
   applyStarToAll(pageElems)
 }
 
