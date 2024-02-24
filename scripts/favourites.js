@@ -31,26 +31,40 @@ const toggleFavourite = (element) => {
 }
 
 const insertStarIcon = (element) => {
-  const insertedStarIcon = starIcon.cloneNode()
-  element.appendChild(insertedStarIcon)
-
-  if (favourites.includes(element.innerText)) {
-    element.classList.add("ICPP_isFavourite")
+  if (!element.querySelector("img")) {
+    const insertedStarIcon = starIcon.cloneNode()
+    element.appendChild(insertedStarIcon)
+  
+    if (favourites.includes(element.innerText)) {
+      element.classList.add("ICPP_isFavourite")
+    }
+  
+    // Block default mouse listeners causing unwanted behaviour
+    insertedStarIcon.addEventListener("mousedown", (event) => {
+      event.stopImmediatePropagation()
+    })
+  
+    insertedStarIcon.addEventListener("click", () => {
+      toggleFavourite(insertedStarIcon.parentNode)
+    })
   }
-
-  // Block default mouse listeners causing unwanted behaviour
-  insertedStarIcon.addEventListener("mousedown", (event) => {
-    event.stopImmediatePropagation()
-  })
-
-  insertedStarIcon.addEventListener("click", () => {
-    toggleFavourite(insertedStarIcon.parentNode)
-  })
 }
 
 const applyStarToAll = (pageElems) => {
+  const intersectionObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            insertStarIcon(entry.target);
+            observer.unobserve(entry.target);
+        }
+    })
+  }, {
+    root: null,
+    threshold: 0.1
+  })
+
   Array.from(pageElems.sidebarItems.children).forEach(async (element) => {
-    insertStarIcon(element)
+    intersectionObserver.observe(element)
   })
 }
 
