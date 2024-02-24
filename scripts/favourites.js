@@ -38,7 +38,7 @@ const reimplementDiscoveriesBtn = (pageElems) => {
   replacementDiscoveriesBtn.addEventListener("click", (event) => {
     event.stopImmediatePropagation()
     event.preventDefault()
-    
+
     if (replacementDiscoveriesBtn.classList.contains("sidebar-discoveries-active")) {
       replacementDiscoveriesBtn.classList.remove("sidebar-discoveries-active")
       pageElems.sidebarItems.classList.remove("ICPP_showOnlyDiscoveries")
@@ -83,7 +83,7 @@ const applyStarToAll = (pageElems) => {
 
   Array.from(pageElems.sidebarItems.children).forEach(async (element) => {
     intersectionObserver.observe(element)
- 
+
     if (favourites.includes(element.innerText)) {
       element.classList.add("ICPP_isFavourite")
     }
