@@ -33,7 +33,7 @@ const main = async () => {
   particleToggle.injectParticleToggle(pageElems)
   speedrunTimer.injectMenu(pageElems)
   resizeSidebar.inject(pageElems)
-  favourites.inject(pageElems)
+  favourites.inject(pageElems, discoveryCounter.refresh)
 }
 
 main()
