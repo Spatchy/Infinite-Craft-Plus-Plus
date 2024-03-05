@@ -23,7 +23,7 @@ const main = async () => {
 
     discoveryCounter.refresh(pageElems)
     if (pageElems.sidebarItems.children.length > 4) { // prevent weird issues on game reset
-      favourites.insertStarIcon(mostRecentDiscoveryNode)
+      favourites.insertStarIcon(mostRecentDiscoveryNode, pageElems, discoveryCounter.refresh)
     }
   })
   observer.observe(pageElems.sidebarItems, { childList: true })
