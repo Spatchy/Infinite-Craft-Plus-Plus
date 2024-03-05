@@ -113,11 +113,20 @@
     width: 40px;
 }
 
+.dark-mode .ICPP_speedrunTimerMenuButton,
+.dark-mode .ICPP_timerMenuContainer {
+    filter: invert(1);
+}
+
 .ICPP_particleToggle {
     display: flex;
     width: 20px;
     cursor: pointer;
     filter: var(--ICPP_accent_filter)
+}
+
+.dark-mode .ICPP_particleToggle {
+    filter: var(--ICPP_accent_filter) invert(1)
 }
 
 .ICPP_favouriteStar {
@@ -135,7 +144,13 @@
     background-color: white;
 }
 
-.ICPP_sortingItemSelected {
+.dark-mode .ICPP_viewFavouritesBtn {
+    background-color: black;
+    color: white;
+}
+
+.ICPP_sortingItemSelected,
+.dark-mode .ICPP_sortingItemSelected {
     background-color: var(--ICPP_background_selected);
 }
 
@@ -145,4 +160,10 @@
 
 .ICPP_showOnlyDiscoveries .item:not(.item-discovered) {
     display: none;
+}
+
+/* for people not using an ad blocker */
+.adsbygoogle {
+    bottom: unset !important;
+    top: 0 !important;
 }
