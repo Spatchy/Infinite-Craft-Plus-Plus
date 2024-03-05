@@ -46,7 +46,8 @@ const inject = (pageElems) => {
 
   // Detect click on left edge of sidebar
   pageElems.sidebar.addEventListener("mousedown", (event) => {
-    if (event.offsetX < 5) {
+    // classList check required to prevent it applying to children (issue #15)
+    if (event.target.classList.contains("sidebar") && event.offsetX < 5) {
       isResizing = true
       initialMouseX = event.clientX
       initialSidebarWidth = pageElems.sidebar.offsetWidth
