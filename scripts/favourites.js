@@ -30,7 +30,7 @@ const toggleFavourite = (element) => {
   }
 }
 
-const reimplementDiscoveriesBtn = (pageElems) => {
+const reimplementDiscoveriesBtn = (pageElems, refreshElementCounter) => {
   const replacementDiscoveriesBtn = pageElems.discoveriesBtn.cloneNode(true)
 
   pageElems.discoveriesBtn.replaceWith(replacementDiscoveriesBtn)
@@ -46,6 +46,8 @@ const reimplementDiscoveriesBtn = (pageElems) => {
       replacementDiscoveriesBtn.classList.add("sidebar-discoveries-active")
       pageElems.sidebarItems.classList.add("ICPP_showOnlyDiscoveries")
     }
+    
+    refreshElementCounter(pageElems)
   })
 }
 
@@ -96,7 +98,7 @@ const clearAllStars = () => {
   })
 }
 
-const inject = async (pageElems) => {
+const inject = async (pageElems, refreshElementCounter) => {
   await loadFavourites()
 
   const viewFavouritesBtn = document.createElement("div")
@@ -113,6 +115,8 @@ const inject = async (pageElems) => {
       viewFavouritesBtn.classList.add("ICPP_sortingItemSelected")
       pageElems.sidebarItems.classList.add("ICPP_showOnlyFavourites")
     }
+
+    refreshElementCounter(pageElems)
   })
 
   pageElems.resetBtn.addEventListener("mousedown", (event) => {
@@ -133,7 +137,7 @@ const inject = async (pageElems) => {
 
   pageElems.sidebarSorting.insertBefore(viewFavouritesBtn, pageElems.sidebarSorting.firstChild)
 
-  reimplementDiscoveriesBtn(pageElems)
+  reimplementDiscoveriesBtn(pageElems, refreshElementCounter)
   applyStarToAll(pageElems)
 }
 

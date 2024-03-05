@@ -49,6 +49,7 @@
     background-color: var(--ICPP_accent_color);
     color: white;
     font-weight: bold;
+    white-space: pre;
 }
 
 .ICPP_speedrunTimerMenuButton {
