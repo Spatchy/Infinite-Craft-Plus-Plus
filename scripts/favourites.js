@@ -57,7 +57,7 @@ const reimplementDiscoveriesBtn = (pageElems, refreshElementCounter) => {
   })
 }
 
-const insertStarIcon = (element) => {
+const insertStarIcon = (element, pageElems, refreshElementCounter) => {
   if (!element.querySelector("img")) {
     const insertedStarIcon = starIcon.cloneNode()
     element.appendChild(insertedStarIcon)
@@ -73,15 +73,16 @@ const insertStarIcon = (element) => {
 
     insertedStarIcon.addEventListener("click", () => {
       toggleFavourite(insertedStarIcon.parentNode)
+      refreshElementCounter(pageElems)
     })
   }
 }
 
-const applyStarToAll = (pageElems) => {
+const applyStarToAll = (pageElems, refreshElementCounter) => {
   const intersectionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        insertStarIcon(entry.target)
+        insertStarIcon(entry.target, pageElems, refreshElementCounter)
         observer.unobserve(entry.target)
       }
     })
@@ -144,7 +145,7 @@ const inject = async (pageElems, refreshElementCounter) => {
   pageElems.sidebarSorting.insertBefore(viewFavouritesBtn, pageElems.sidebarSorting.firstChild)
 
   reimplementDiscoveriesBtn(pageElems, refreshElementCounter)
-  applyStarToAll(pageElems)
+  applyStarToAll(pageElems, refreshElementCounter)
 }
 
 export { inject, insertStarIcon }
