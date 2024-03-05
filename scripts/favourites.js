@@ -21,11 +21,17 @@ const saveFavourites = () => {
 const toggleFavourite = (element) => {
   if (element.classList.contains("ICPP_isFavourite")) {
     element.classList.remove("ICPP_isFavourite")
-    favourites = favourites.filter(e => e !== element.innerText.trim())
+    favourites = favourites.filter(e => {
+      const [emoji, text] = Array.from(element.childNodes)
+      const comboString = `${emoji.innerText.trim()} ${text.wholeText.trim()}`
+      return e !== comboString
+    })
     saveFavourites()
   } else {
     element.classList.add("ICPP_isFavourite")
-    favourites.push(element.innerText.trim())
+    const [emoji, text] = Array.from(element.childNodes)
+    const comboString = `${emoji.innerText.trim()} ${text.wholeText.trim()}`
+    favourites.push(comboString)
     saveFavourites()
   }
 }
