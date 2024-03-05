@@ -142,3 +142,7 @@
 .ICPP_showOnlyFavourites .item:not(.ICPP_isFavourite) {
     display: none;
 }
+
+.ICPP_showOnlyDiscoveries .item:not(.item-discovered) {
+    display: none;
+}
