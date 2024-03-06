@@ -105,6 +105,26 @@ const clearAllStars = () => {
   })
 }
 
+const reimplementSearchClearBtn = (pageElems, refreshElementCounter) => {
+  const replacementSearchClearBtn = pageElems.sidebarSearchClearBtn.cloneNode(true)
+
+  pageElems.sidebarSearchClearBtn.replaceWith(replacementSearchClearBtn)
+
+  replacementSearchClearBtn.style.display = "inherit"
+
+  replacementSearchClearBtn.addEventListener("click", (event) => {
+    pageElems.sidebarSearch.select()
+    pageElems.sidebarSearch.value = ""
+    pageElems.sidebarSearch.dispatchEvent(new Event('input', {
+      bubbles: true,
+      cancelable: true,
+    }))
+    setTimeout(() => {
+      applyStarToAll(pageElems, refreshElementCounter)
+    }, 100)
+  })
+}
+
 const inject = async (pageElems, refreshElementCounter) => {
   await loadFavourites()
 
@@ -142,8 +162,15 @@ const inject = async (pageElems, refreshElementCounter) => {
     }
   })
 
+  pageElems.sidebarSearch.addEventListener("input", (event) => {
+    setTimeout(() => {
+      applyStarToAll(pageElems, refreshElementCounter)
+    }, 100)
+  })
+
   pageElems.sidebarSorting.insertBefore(viewFavouritesBtn, pageElems.sidebarSorting.firstChild)
 
+  reimplementSearchClearBtn(pageElems, refreshElementCounter)
   reimplementDiscoveriesBtn(pageElems, refreshElementCounter)
   applyStarToAll(pageElems, refreshElementCounter)
 }
