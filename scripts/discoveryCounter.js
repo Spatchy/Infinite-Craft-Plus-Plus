@@ -8,13 +8,16 @@ const getItemCount = (pageElems) => {
 }
 
 const refresh = (pageElems) => {
-  const prefixString = 
-    pageElems.sidebarItems.classList.contains("ICPP_showOnlyFavourites") 
-      && pageElems.sidebarItems.classList.contains("ICPP_showOnlyDiscoveries") ? "Favourite First Discoveries: " : 
-    pageElems.sidebarItems.classList.contains("ICPP_showOnlyFavourites") ? "Favourite Elements: " : 
-    pageElems.sidebarItems.classList.contains("ICPP_showOnlyDiscoveries") ? "First Discoveries: " : 
-    "Elements Crafted: ";
-  
+  const prefixString =
+    pageElems.sidebarItems.classList.contains("ICPP_showOnlyFavourites") &&
+      pageElems.sidebarItems.classList.contains("ICPP_showOnlyDiscoveries")
+      ? "Favourite First Discoveries: "
+      : pageElems.sidebarItems.classList.contains("ICPP_showOnlyFavourites")
+        ? "Favourite Elements: "
+        : pageElems.sidebarItems.classList.contains("ICPP_showOnlyDiscoveries")
+          ? "First Discoveries: "
+          : "Elements Crafted: "
+
   discoverCounterElem.childNodes[0].nodeValue = prefixString
   discoverCounterItemCountElem.innerText = getItemCount(pageElems)
 }

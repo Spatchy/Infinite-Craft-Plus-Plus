@@ -1,6 +1,6 @@
 {
   "name": "infinite-craft-plus-plus",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A collection of quality-of-life and accessability enhacements for Infinite Craft",
   "main": "content.js",
   "scripts": {

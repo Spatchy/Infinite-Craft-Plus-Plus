@@ -52,7 +52,7 @@ const reimplementDiscoveriesBtn = (pageElems, refreshElementCounter) => {
       replacementDiscoveriesBtn.classList.add("sidebar-discoveries-active")
       pageElems.sidebarItems.classList.add("ICPP_showOnlyDiscoveries")
     }
-    
+
     refreshElementCounter(pageElems)
   })
 }
