@@ -12,8 +12,13 @@ Available on [Firefox Addons](https://addons.mozilla.org/en-GB/firefox/addon/inf
 
 
 ### Features
+- ![NEW!](https://img.shields.io/badge/New-FF0000) Favourites:
+Click the star next to the element to favourite it! View your favourites with the "Favourites" button.
 
-- ![NEW!](https://img.shields.io/badge/New-FF0000) Resizeable Sidebar:
+![2024-03-06 13-12-06](https://github.com/Spatchy/Infinite-Craft-Plus-Plus/assets/17989046/ff8ce5e2-f5d6-4ad1-b6d8-1ee017dab483)
+
+
+- Resizeable Sidebar:
 Drag the edge of the sidebar to make it wider or narrower
 
 ![2024-02-22 12-28-56](https://github.com/Spatchy/Infinite-Craft-Plus-Plus/assets/17989046/3747985f-c416-4879-9143-7c22cc16c61f)
