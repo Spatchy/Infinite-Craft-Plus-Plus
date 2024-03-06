@@ -9,7 +9,9 @@ const pageItems = {
   instances: document.querySelector(".instances"),
   sidebarSorting: document.querySelector(".sidebar .sidebar-controls .sidebar-sorting"),
   discoveriesBtn: document.querySelector(".sidebar .sidebar-controls .sidebar-discoveries"),
-  resetBtn: document.querySelector(".reset")
+  resetBtn: document.querySelector(".reset"),
+  sidebarSearch: document.querySelector(".sidebar-input"),
+  sidebarSearchClearBtn: document.querySelector(".sidebar-input-close")
 }
 
 export { pageItems }
