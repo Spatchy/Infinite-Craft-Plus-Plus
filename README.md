@@ -4,12 +4,12 @@ Infinite Craft++ is a collection of quality-of-life and accessibility enhancemen
 ![Icon](/icon/icon256.png)
 
 ### Installation
-![Chrome-icon](https://github.com/Spatchy/Infinite-Craft-Plus-Plus/assets/17989046/bdb3fedb-a50d-46b1-996e-3f4674223b7e)
-Available on the [Chrome Webstore](https://chromewebstore.google.com/detail/infinite-craft++/ndeohbhimcpekdhgfhgochbfehkjncdp)
 
-![firefox](https://github.com/Spatchy/Infinite-Craft-Plus-Plus/assets/17989046/fccd8dd9-937f-4189-9829-ff93a2144c51)
-Available on [Firefox Addons](https://addons.mozilla.org/en-GB/firefox/addon/infinite-craft/)
+Get it from the browser of your choice using the buttons below!
 
+[![Available on the Chrome Webstore](https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/tbyBjqi7Zu733AAKA5n4.png)](https://chromewebstore.google.com/detail/infinite-craft++/ndeohbhimcpekdhgfhgochbfehkjncdp)
+
+[![Avilable on Firefox add-ons](https://extensionworkshop.com/assets/img/documentation/publish/get-the-addon-178x60px.dad84b42.png)](https://addons.mozilla.org/addon/infinite-craft/)
 
 ### Features
 - ![NEW!](https://img.shields.io/badge/New-FF0000) Favourites:
