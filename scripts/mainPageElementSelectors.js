@@ -1,6 +1,6 @@
 const pageItems = {
   sidebar: document.querySelector(".sidebar"),
-  sidebarItems: document.querySelector(".sidebar .items"),
+  sidebarItems: document.querySelector(".sidebar .items .items-inner"),
   sidebarControls: document.querySelector(".sidebar .sidebar-controls"),
   instructionLabel: document.querySelector(".sidebar .items .instruction"),
   sideControls: document.querySelector(".side-controls"),
